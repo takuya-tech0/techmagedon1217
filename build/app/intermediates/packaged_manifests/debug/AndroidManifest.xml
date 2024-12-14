@@ -42,7 +42,8 @@
         android:debuggable="true"
         android:extractNativeLibs="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="techmageddon_1st_v2" >
+        android:label="techmageddon_1st_v2"
+        android:networkSecurityConfig="@xml/network_security_config" >
         <activity
             android:name="techmageddon1stv2.com.example.techmageddon_1st_v2.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

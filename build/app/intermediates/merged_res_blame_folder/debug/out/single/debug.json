@@ -22,5 +22,9 @@
     {
         "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-28:/mipmap-mdpi_ic_launcher.png.flat",
         "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-22:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-28:/xml_network_security_config.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-22:/xml/network_security_config.xml"
     }
 ]

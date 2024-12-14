@@ -1,0 +1,346 @@
+[
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_ic_call_decline_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxxhdpi-v4_ic_call_decline.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxxhdpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_ic_call_answer_video.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/animator_fragment_close_enter.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-fragment-1.7.1-11:/animator/fragment_close_enter.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout-v21_notification_action_tombstone.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_ic_call_answer_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_ic_call_answer_video.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxhdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxhdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxhdpi-v4_ic_call_decline_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxhdpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/animator_fragment_fade_exit.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-fragment-1.7.1-11:/animator/fragment_fade_exit.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxxhdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxxhdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-ldpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-ldpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-anydpi-v21_ic_call_decline.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-anydpi-v21/ic_call_decline.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_ic_call_answer_video.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_ic_call_decline.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-21:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable_notification_tile_bg.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout_custom_dialog.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout/custom_dialog.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxxhdpi-v4_ic_call_decline_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxxhdpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-anydpi-v21_ic_call_answer_video.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-anydpi-v21/ic_call_answer_video.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxxhdpi-v4_ic_call_answer_video.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxxhdpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-21:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-ldpi-v4_ic_call_answer.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-ldpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxhdpi-v4_ic_call_answer_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxhdpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_ic_call_answer.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout-v21_notification_action.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-anydpi-v21_ic_call_answer_low.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-anydpi-v21/ic_call_answer_low.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxhdpi-v4_ic_call_answer_video.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxhdpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/animator_fragment_open_exit.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-fragment-1.7.1-11:/animator/fragment_open_exit.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-v21_notification_action_background.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/xml_network_security_config.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-21:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-ldpi-v4_ic_call_decline_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-ldpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/anim-v21_fragment_fast_out_extra_slow_in.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-fragment-1.7.1-11:/anim-v21/fragment_fast_out_extra_slow_in.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-ldpi-v4_ic_call_decline.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-ldpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/animator_fragment_open_enter.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-fragment-1.7.1-11:/animator/fragment_open_enter.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxxhdpi-v4_ic_call_answer_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxxhdpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-21:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-anydpi-v21_ic_call_answer_video_low.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-anydpi-v21/ic_call_answer_video_low.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/animator_fragment_fade_enter.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-fragment-1.7.1-11:/animator/fragment_fade_enter.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_ic_call_answer.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout_ime_secondary_split_test_activity.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout/ime_secondary_split_test_activity.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_ic_call_decline.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_ic_call_decline_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-anydpi-v21_ic_call_answer.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-anydpi-v21/ic_call_answer.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable_notification_icon_background.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_ic_call_decline.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable_notification_bg.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout_ime_base_split_test_activity.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout/ime_base_split_test_activity.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable_notification_bg_low.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_ic_call_answer_video_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-anydpi-v21_ic_call_decline_low.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-anydpi-v21/ic_call_decline_low.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_ic_call_answer.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxhdpi-v4_ic_call_decline.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxhdpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_notification_oversize_large_icon_bg.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/notification_oversize_large_icon_bg.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-ldpi-v4_ic_call_answer_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-ldpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout-v21_notification_template_icon_group.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-v21_launch_background.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-21:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-21:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout-v21_notification_template_custom_big.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_ic_call_answer_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xhdpi-v4_ic_call_decline_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xhdpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-ldpi-v4_ic_call_answer_video.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-ldpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/animator_fragment_close_exit.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-fragment-1.7.1-11:/animator/fragment_close_exit.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-main-21:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxxhdpi-v4_ic_call_answer.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxxhdpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-xxhdpi-v4_ic_call_answer.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-xxhdpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout_notification_template_part_time.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/layout_notification_template_part_chronometer.xml.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-29:/drawable-hdpi-v4_ic_call_answer_low.png.flat",
+        "source": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-core-1.13.1-2:/drawable-hdpi-v4/ic_call_answer_low.png"
+    }
+]

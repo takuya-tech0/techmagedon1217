@@ -1,10 +1,10 @@
-#Sat Dec 14 13:04:35 JST 2024
-base.0=/Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon_frontend/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon_frontend/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
-base.2=/Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon_frontend/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.3=/Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon_frontend/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
-base.4=/Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon_frontend/build/app/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
-base.5=/Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon_frontend/build/app/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+#Sat Dec 14 21:43:49 JST 2024
+base.0=/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
+base.2=/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.3=/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.4=/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/build/app/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
+base.5=/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/build/app/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=0/classes.dex

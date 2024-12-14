@@ -1,1 +1,0 @@
- /Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon_frontend/.dart_tool/flutter_build/67fda075d3994d0df0305a2be7cffca4/native_assets.yaml: 

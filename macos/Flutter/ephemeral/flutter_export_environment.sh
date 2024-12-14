@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/owner/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon_frontend"
+export "FLUTTER_ROOT=/Users/takuya/development/flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
