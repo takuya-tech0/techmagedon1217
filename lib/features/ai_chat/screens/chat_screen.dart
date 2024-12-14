@@ -1,6 +1,5 @@
 // lib/features/ai_chat/screens/chat_screen.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../widgets/chat_bubble.dart';
 import '../widgets/chat_history_drawer.dart';
 import '../widgets/teacher_question_dialog.dart';
@@ -35,7 +34,7 @@ class _ChatScreenState extends State<ChatScreen> with AutomaticKeepAliveClientMi
   @override
   void initState() {
     super.initState();
-    _chatService = ChatService(apiKey: dotenv.env['OPENAI_API_KEY'] ?? '');
+    _chatService = ChatService();
     _loadInitialMessage();
     _loadChatHistory();
   }

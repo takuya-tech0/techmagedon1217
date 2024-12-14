@@ -18,7 +18,7 @@ class ChatHistoryDrawer extends StatefulWidget {
 }
 
 class _ChatHistoryDrawerState extends State<ChatHistoryDrawer> {
-  final ChatService _chatService = ChatService(apiKey: '');
+  final ChatService _chatService = ChatService();
   List<ChatHistory> _conversations = [];
   bool _isLoading = true;
   final String _activeFilter = 'すべての履歴';

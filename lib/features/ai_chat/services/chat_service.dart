@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 import '../models/chat_history.dart';
 
 class ChatService {
-  final String apiKey;
   static const String _baseUrl = 'https://tech0-advance2-webapp4-ayecbfc4b4akgmc7.koreasouth-01.azurewebsites.net/';
 
   int? _currentConversationId;
@@ -19,10 +18,7 @@ class ChatService {
 
   final Set<String> _unusedInitialRecommendations = {};
 
-  ChatService({required this.apiKey}) {
-    if (apiKey.isEmpty) {
-      throw ArgumentError('API key cannot be empty');
-    }
+  ChatService() {
     _unusedInitialRecommendations.addAll(initialRecommendations);
   }
 
