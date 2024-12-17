@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
-  final String videoUrl;
+  final VideoPlayerController controller; // VideoPlayerControllerを受け取る
 
   const VideoPlayerWidget({
     super.key,
-    required this.videoUrl,
+    required this.controller,
   });
 
   @override
@@ -14,9 +14,8 @@ class VideoPlayerWidget extends StatefulWidget {
 }
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> with AutomaticKeepAliveClientMixin {
-  late VideoPlayerController _controller;
   bool _isPlaying = false;
-  final bool _hideControls = false;
+  bool _hideControls = false;
 
   @override
   bool get wantKeepAlive => true; // 状態保持を有効化
@@ -24,16 +23,22 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> with AutomaticKee
   @override
   void initState() {
     super.initState();
-    _initializeVideoPlayer();
+    _isPlaying = widget.controller.value.isPlaying;
+    widget.controller.addListener(_videoListener);
   }
 
-  Future<void> _initializeVideoPlayer() async {
-    _controller = VideoPlayerController.network(widget.videoUrl);
-    await _controller.initialize();
-    // コントローラ初期化後、デフォルトで再生を開始したい場合は以下
-    // _controller.play();
-    // _isPlaying = true;
-    setState(() {});
+  void _videoListener() {
+    if (mounted) {
+      setState(() {
+        _isPlaying = widget.controller.value.isPlaying;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_videoListener);
+    super.dispose();
   }
 
   String formatDuration(Duration duration) {
@@ -47,7 +52,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> with AutomaticKee
       context,
       MaterialPageRoute(
         builder: (context) => FullScreenVideoPlayerPage(
-          controller: _controller,
+          controller: widget.controller,
         ),
       ),
     );
@@ -57,29 +62,19 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> with AutomaticKee
   void _togglePlayPause() {
     setState(() {
       if (_isPlaying) {
-        _controller.pause();
+        widget.controller.pause();
       } else {
-        _controller.play();
+        widget.controller.play();
       }
       _isPlaying = !_isPlaying;
     });
   }
 
   @override
-  void dispose() {
-    // 状態保持する場合、ウィジェット破棄時にdisposeすると再生成時にまた読み込みが必要になる
-    //もしアプリ要件上、画面から完全に離れたとき（Stateがdisposeされるとき）だけ終了したいならここでdispose可
-    //だがタブ切り替え程度でdisposeさせないために、あえてdisposeしない設計もあり得ます。
-
-    // super.dispose(); // 通常は呼ぶべきですが、コントローラを使い回したい場合はdisposeしないことも検討してください。
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     super.build(context); // AutomaticKeepAliveClientMixin使用時には必要
 
-    if (!_controller.value.isInitialized) {
+    if (!widget.controller.value.isInitialized) {
       return const Center(
         child: CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.purple),
@@ -96,8 +91,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> with AutomaticKee
         alignment: Alignment.bottomCenter,
         children: [
           AspectRatio(
-            aspectRatio: _controller.value.aspectRatio,
-            child: VideoPlayer(_controller),
+            aspectRatio: widget.controller.value.aspectRatio,
+            child: VideoPlayer(widget.controller),
           ),
           if (!_hideControls)
             Positioned(
@@ -117,11 +112,11 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> with AutomaticKee
                   ),
                   Expanded(
                     child: Slider(
-                      value: _controller.value.position.inSeconds.toDouble(),
-                      max: _controller.value.duration.inSeconds.toDouble(),
+                      value: widget.controller.value.position.inSeconds.toDouble(),
+                      max: widget.controller.value.duration.inSeconds.toDouble(),
                       onChanged: (value) {
                         setState(() {
-                          _controller.seekTo(Duration(seconds: value.toInt()));
+                          widget.controller.seekTo(Duration(seconds: value.toInt()));
                         });
                       },
                       activeColor: Colors.red,
@@ -129,7 +124,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> with AutomaticKee
                     ),
                   ),
                   Text(
-                    "${formatDuration(_controller.value.position)} / ${formatDuration(_controller.value.duration)}",
+                    "${formatDuration(widget.controller.value.position)} / ${formatDuration(widget.controller.value.duration)}",
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 12,

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+// 既存のモデルをインポート
 import '../../features/text_viewer/models/material.dart';
 import '../../features/text_viewer/services/material_service.dart';
 
@@ -10,10 +11,10 @@ class CustomDrawer extends StatefulWidget {
   final int currentUnitId;
 
   const CustomDrawer({
-    super.key,
+    Key? key,
     required this.onUnitSelected,
     required this.currentUnitId,
-  });
+  }) : super(key: key);
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -25,7 +26,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
   bool _isLoading = true;
 
   // unitIdごとに状態を保持するための静的マップ
-  // unitIdをキーに、{"checked": List<bool>, "bookmarked": List<bool>}のマップを保存
   static final Map<int, Map<String, List<bool>>> _statesPerUnit = {};
 
   List<bool> _isCheckedList = [];
@@ -68,8 +68,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
     }
   }
 
+  // 状態を保存するメソッド
   void _saveStates() {
-    // 現在の状態を保存
     if (_materials != null) {
       _statesPerUnit[widget.currentUnitId] = {
         'checked': List<bool>.from(_isCheckedList),
@@ -85,11 +85,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    // 既存の教材数に追加アイテム2つを加える
+    int additionalItemsCount = 2;
+    int totalItemCount = (_materials?.length ?? 0) + additionalItemsCount;
+
     return Drawer(
       width: MediaQuery.of(context).size.width * 0.8, // 幅を画面の80%に拡大
       child: SafeArea(
         child: Column(
           children: [
+            // ヘッダー
             Container(
               color: const Color(0xFFFFFFFF),
               height: 56,
@@ -120,26 +125,22 @@ class _CustomDrawerState extends State<CustomDrawer> {
               thickness: 1,
               height: 1,
             ),
-            if (_isLoading)
-              const Expanded(
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
+            // コンテンツ部分
+            Expanded(
+              child: _isLoading
+                  ? const Center(
+                child: CircularProgressIndicator(),
               )
-            else if (_materials == null || _materials!.isEmpty)
-              const Expanded(
-                child: Center(
-                  child: Text('教材が見つかりません'),
-                ),
+                  : _materials == null || _materials!.isEmpty
+                  ? const Center(
+                child: Text('教材が見つかりません'),
               )
-            else
-              Expanded(
-                child: ListView.separated(
-                  padding: const EdgeInsets.all(16.0),
-                  itemCount: _materials!.length,
-                  itemBuilder: (context, index) {
-                    final material = _materials![index];
-
+                  : ListView.separated(
+                padding: const EdgeInsets.all(16.0),
+                itemCount: totalItemCount,
+                itemBuilder: (context, index) {
+                  if (index < (_materials?.length ?? 0)) {
+                    // 既存の教材リストアイテム
                     return ListTile(
                       leading: SizedBox(
                         width: 32,
@@ -152,7 +153,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             onChanged: (bool? value) {
                               setState(() {
                                 _isCheckedList[index] = value ?? false;
-                                _saveStates(); // 状態変更時に都度保存
+                                _saveStates();
                               });
                             },
                             checkColor: Colors.white,
@@ -160,13 +161,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           ),
                         ),
                       ),
-                      title: Text(
-                        material.title,
-                        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      title: const Text(
+                        "1. 変位、速度、加速度...", // タイトルを固定
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        _formatDate(material.createdAt),
-                        style: const TextStyle(fontSize: 12),
+                      subtitle: const Text(
+                        "20:44", // サブタイトルを固定
+                        style: TextStyle(fontSize: 12),
                       ),
                       trailing: SizedBox(
                         width: 32,
@@ -175,31 +176,134 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           padding: EdgeInsets.zero,
                           icon: Icon(
                             _isBookmarkedList[index] ? Icons.bookmark : Icons.bookmark_border,
-                            color: const Color(0xFFBA1A1A),
+                            color: _isBookmarkedList[index] ? const Color(0xFFBA1A1A) : Color(0xFFBA1A1A), // 色の設定
                             size: 32,
                           ),
                           onPressed: () {
                             setState(() {
                               _isBookmarkedList[index] = !_isBookmarkedList[index];
-                              _saveStates(); // 状態変更時に保存
+                              _saveStates(); // 状態を保存
                             });
                           },
                         ),
                       ),
                       onTap: () {
-                        widget.onUnitSelected(material.unitId);
                         _saveStates();
                         Navigator.pop(context);
                       },
                     );
-                  },
-                  separatorBuilder: (context, index) => const Divider(
-                    color: Color(0xFFD9D9D9),
-                    thickness: 1,
-                    height: 1,
-                  ),
+                  } else if (index == (_materials?.length ?? 0)) {
+                    // 追加アイテム1
+                    return ListTile(
+                      leading: SizedBox(
+                        width: 32,
+                        height: 32,
+                        child: Transform.scale(
+                          scale: 1.5,
+                          child: Checkbox(
+                            shape: const CircleBorder(),
+                            value: false, // 必要に応じて状態管理を追加
+                            onChanged: (bool? value) {
+                              setState(() {
+                                // 必要に応じて状態を更新
+                              });
+                            },
+                            checkColor: Colors.white,
+                            activeColor: const Color(0xFF635690),
+                          ),
+                        ),
+                      ),
+                      title: const Text(
+                        "2. 自由落下、鉛直投射", // 追加アイテム1のタイトル
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: const Text(
+                        "14:47", // 追加アイテム1のサブタイトル
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      trailing: SizedBox(
+                        width: 32,
+                        height: 32,
+                        child: IconButton(
+                          padding: EdgeInsets.zero,
+                          icon: const Icon(
+                            Icons.bookmark_border,
+                            color: Color(0xFFBA1A1A),
+                            size: 32,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              // 必要に応じてブックマーク状態を管理
+                            });
+                          },
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    );
+                  } else if (index == (_materials?.length ?? 0) + 1) {
+                    // 追加アイテム2
+                    return ListTile(
+                      leading: SizedBox(
+                        width: 32,
+                        height: 32,
+                        child: Transform.scale(
+                          scale: 1.5,
+                          child: Checkbox(
+                            shape: const CircleBorder(),
+                            value: false, // 必要に応じて状態管理を追加
+                            onChanged: (bool? value) {
+                              setState(() {
+                                // 必要に応じて状態を更新
+                              });
+                            },
+                            checkColor: Colors.white,
+                            activeColor: const Color(0xFF635690),
+                          ),
+                        ),
+                      ),
+                      title: const Text(
+                        "確認テスト", // 追加アイテム2のタイトル
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: const Text(
+                        "全3問", // 追加アイテム2のサブタイトル
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      trailing: SizedBox(
+                        width: 32,
+                        height: 32,
+                        child: IconButton(
+                          padding: EdgeInsets.zero,
+                          icon: const Icon(
+                            Icons.bookmark_border,
+                            color: Color(0xFFBA1A1A),
+                            size: 32,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              // 必要に応じてブックマーク状態を管理
+                            });
+                          },
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    );
+                  } else {
+                    // 予期しないインデックスの場合
+                    return const SizedBox.shrink();
+                  }
+                },
+                separatorBuilder: (context, index) => const Divider(
+                  color: Color(0xFFD9D9D9),
+                  thickness: 1,
+                  height: 1,
                 ),
               ),
+            ),
           ],
         ),
       ),
