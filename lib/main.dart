@@ -1,4 +1,7 @@
+// lib/main.dart
+
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart'; // 追加
 import 'core/constants/app_constants.dart';
 import 'core/themes/app_theme.dart';
 import 'features/text_viewer/services/material_service.dart';
@@ -46,7 +49,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   List<LessonMaterial>? _currentPdfs;
   bool _isLoading = true;
   bool _hasError = false;
-  bool _videoInitialized = false;
+
+  // VideoPlayerControllerを追加
+  VideoPlayerController? _videoController;
+  bool _isVideoLoading = true; // 動画の読み込み状態を管理
+  bool _videoLoadError = false; // 動画の読み込みエラーを管理
 
   @override
   void initState() {
@@ -60,6 +67,8 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   void dispose() {
     _tabController.removeListener(_handleTabChange);
     _tabController.dispose();
+    // VideoPlayerControllerを破棄
+    _videoController?.dispose();
     super.dispose();
   }
 
@@ -76,24 +85,52 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     setState(() {
       _isLoading = true;
       _hasError = false;
+      _isVideoLoading = true; // 動画の読み込みを開始
+      _videoLoadError = false; // エラーリセット
     });
 
     try {
       final materials = await _materialService.getMaterialsByUnit(unitId);
       if (!mounted) return;
+
       setState(() {
-        if (!_videoInitialized) {
+        if (_currentVideo == null && materials['video'] != null) {
           _currentVideo = materials['video'];
-          _videoInitialized = true;
+          // VideoPlayerControllerの初期化
+          _videoController = VideoPlayerController.network(_currentVideo!.blobUrl)
+            ..initialize().then((_) {
+              setState(() {
+                _isVideoLoading = false; // 動画の初期化が完了
+              });
+            }).catchError((error) {
+              // 初期化エラーの処理
+              print("動画の初期化に失敗しました: $error"); // デバッグ用
+              setState(() {
+                _videoLoadError = true;
+                _isVideoLoading = false; // 動画の初期化が完了（失敗）
+              });
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('動画の初期化に失敗しました'),
+                  duration: Duration(seconds: 2),
+                ),
+              );
+            });
+        } else {
+          // 既に動画が初期化されている場合
+          _isVideoLoading = false;
         }
         _currentPdfs = materials['pdfs'];
         _isLoading = false;
       });
     } catch (e) {
+      print("教材の読み込みに失敗しました: $e"); // デバッグ用
       if (!mounted) return;
       setState(() {
         _isLoading = false;
         _hasError = true;
+        _isVideoLoading = false;
+        _videoLoadError = false;
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -108,41 +145,46 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      _tabController.animateTo(index); // タブバーのインデックスを変更
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: _tabController.index != 1
-          ? CustomDrawer(
+      // ドロワーを常に表示
+      drawer: CustomDrawer(
         onUnitSelected: _loadMaterialsByUnit,
         currentUnitId: _currentVideo?.unitId ?? 1,
-      )
-          : null,
+      ),
       appBar: CustomAppBar(
         materialTitle: _currentVideo?.title ?? "教材",
         unitName: _currentVideo != null
             ? "第${_currentVideo!.unitId}章 物体の位置、速度、加速度"
             : "物理",
       ),
-      body: Column(
+      body: _isLoading
+          ? const Center(
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.purple),
+        ),
+      )
+          : Column(
         children: [
           CustomTabBar(controller: _tabController),
 
+          // タブのインデックスが0（動画タブ）で動画を表示
           if (_tabController.index == 0) ...[
-            if (_isLoading)
-              const SizedBox(
-                height: 200,
+            if (_isVideoLoading)
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0),
                 child: Center(
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.purple),
                   ),
                 ),
               )
-            else if (_currentVideo != null)
-              VideoPlayerWidget(videoUrl: _currentVideo!.blobUrl)
-            else
+            else if (_videoLoadError)
               const SizedBox(
                 height: 200,
                 child: Center(
@@ -158,9 +200,30 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                     ],
                   ),
                 ),
-              ),
+              )
+            else if (_currentVideo != null &&
+                  _videoController != null &&
+                  _videoController!.value.isInitialized)
+              // 動画をAspectRatioでラップし、余白を削除
+                AspectRatio(
+                  aspectRatio: _videoController!.value.aspectRatio,
+                  child: VideoPlayerWidget(
+                    controller: _videoController!,
+                  ),
+                )
+              else
+                const SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: Text(
+                      '動画を読み込めませんでした',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                ),
           ],
 
+          // 他のタブの内容
           Expanded(
             child: TabBarView(
               controller: _tabController,

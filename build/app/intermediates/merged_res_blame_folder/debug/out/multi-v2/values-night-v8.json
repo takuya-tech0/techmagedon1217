@@ -4,7 +4,7 @@
             "outputFile": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-mergeDebugResources-26:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/takuya/Documents/techmagedon_frontend-feature-UIupdate_local/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/owner/Desktop/Tech0/STEP5_adv2/techmagedon1217/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
