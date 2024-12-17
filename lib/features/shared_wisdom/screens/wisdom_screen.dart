@@ -1,4 +1,3 @@
-// lib/features/shared_wisdom/screens/wisdom_screen.dart
 import 'package:flutter/material.dart';
 import '../models/wisdom_post.dart';
 import '../widgets/wisdom_list.dart';
@@ -20,7 +19,7 @@ class WisdomScreen extends StatefulWidget {
 class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClientMixin {
   final WisdomService _service = WisdomService();
   List<WisdomPost> _posts = [];
-  List<WisdomPost> _filteredPosts = []; // フィルタ後の投稿一覧
+  List<WisdomPost> _filteredPosts = [];
   bool _isLoading = true;
   String _errorMessage = '';
   final TextEditingController _searchController = TextEditingController();
@@ -30,7 +29,7 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
   bool _showBookmarkedOnly = false;
 
   @override
-  bool get wantKeepAlive => true; // 状態保持
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -132,12 +131,11 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
         PopupMenuItem(value: '原子', child: Text('原子')),
       ],
     );
-    // 選択結果を変数に受け取っても、今回は特にアクションは行いません。
   }
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); // AutomaticKeepAliveClientMixin使用時は必要
+    super.build(context);
 
     if (_isLoading) {
       return const Scaffold(
@@ -228,14 +226,23 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
                     const SizedBox(width: 8),
                     OutlinedButton(
                       style: buttonStyle,
-                      onPressed: () => _showUnitMenu(context), // 単元ボタン
+                      onPressed: () => _showUnitMenu(context),
                       child: const Text('単元'),
                     ),
                     const SizedBox(width: 8),
                     OutlinedButton(
-                      style: buttonStyle,
+                      style: OutlinedButton.styleFrom(
+                        minimumSize: const Size(80, 28),
+                        side: BorderSide(color: customColor),
+                        backgroundColor: _showBookmarkedOnly ? customColor : Colors.transparent,
+                        foregroundColor: _showBookmarkedOnly ? Colors.white : customColor,
+                        textStyle: const TextStyle(fontSize: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
                       onPressed: _toggleBookmarkFilter,
-                      child: Text(_showBookmarkedOnly ? 'お気に入り☆解除' : 'お気に入り☆'),
+                      child: const Text('☆'),
                     ),
                     const SizedBox(width: 8),
                     OutlinedButton(

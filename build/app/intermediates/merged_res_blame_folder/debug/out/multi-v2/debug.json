@@ -82,7 +82,7 @@
             "outputFile": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-28:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/takuya/Documents/techmagedon_frontend-feature-UIupdate_local/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -1727,6 +1727,23 @@
             "outputFile": "techmageddon1stv2.com.example.techmageddon_1st_v2.app-merged_res-28:/values_values.arsc.flat",
             "map": [
                 {
+                    "source": "/Users/takuya/Documents/techmagedon_frontend-feature-UIupdate_local/build/app/generated/res/google-services/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,137,241,350,470,578",
+                        "endColumns": "81,103,108,119,107,76",
+                        "endOffsets": "132,236,345,465,573,650"
+                    },
+                    "to": {
+                        "startLines": "163,164,165,166,167,168",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "8469,8551,8655,8764,8884,8992",
+                        "endColumns": "81,103,108,119,107,76",
+                        "endOffsets": "8546,8650,8759,8879,8987,9064"
+                    }
+                },
+                {
                     "source": "/Users/takuya/.gradle/caches/transforms-3/331e6def37b6f31d44e288907978ac31/transformed/lifecycle-viewmodel-2.7.0/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -1780,25 +1797,6 @@
                     }
                 },
                 {
-                    "source": "/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
-                    },
-                    "to": {
-                        "startLines": "170,174",
-                        "startColumns": "4,4",
-                        "startOffsets": "9140,9321",
-                        "endLines": "173,176",
-                        "endColumns": "12,12",
-                        "endOffsets": "9316,9485"
-                    }
-                },
-                {
                     "source": "/Users/takuya/.gradle/caches/transforms-3/da8bdefef84095f544ed9e31540bab3c/transformed/jetified-media3-exoplayer-1.4.1/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
@@ -1813,23 +1811,6 @@
                         "startOffsets": "7823,7893,7955,8020,8084,8161,8226,8316,8400",
                         "endColumns": "69,61,64,63,76,64,89,83,68",
                         "endOffsets": "7888,7950,8015,8079,8156,8221,8311,8395,8464"
-                    }
-                },
-                {
-                    "source": "/Users/takuya/Downloads/techmagedon_frontend-feature-UIupdate/build/app/generated/res/google-services/debug/values/values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,137,241,350,470,578",
-                        "endColumns": "81,103,108,119,107,76",
-                        "endOffsets": "132,236,345,465,573,650"
-                    },
-                    "to": {
-                        "startLines": "163,164,165,166,167,168",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "8469,8551,8655,8764,8884,8992",
-                        "endColumns": "81,103,108,119,107,76",
-                        "endOffsets": "8546,8650,8759,8879,8987,9064"
                     }
                 },
                 {
@@ -1864,6 +1845,25 @@
                         "startOffsets": "7229",
                         "endColumns": "82",
                         "endOffsets": "7307"
+                    }
+                },
+                {
+                    "source": "/Users/takuya/Documents/techmagedon_frontend-feature-UIupdate_local/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
+                    },
+                    "to": {
+                        "startLines": "170,174",
+                        "startColumns": "4,4",
+                        "startOffsets": "9140,9321",
+                        "endLines": "173,176",
+                        "endColumns": "12,12",
+                        "endOffsets": "9316,9485"
                     }
                 },
                 {

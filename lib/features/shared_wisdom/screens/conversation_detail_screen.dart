@@ -1,3 +1,4 @@
+// lib/features/shared_wisdom/screens/conversation_detail_screen.dat
 import 'package:flutter/material.dart';
 import '../models/conversation_detail.dart';
 import '../services/wisdom_service.dart';

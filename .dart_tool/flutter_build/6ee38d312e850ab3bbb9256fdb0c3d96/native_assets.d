@@ -1,0 +1,1 @@
+ /Users/takuya/Documents/techmagedon_frontend-feature-UIupdate/.dart_tool/flutter_build/6ee38d312e850ab3bbb9256fdb0c3d96/native_assets.yaml: 

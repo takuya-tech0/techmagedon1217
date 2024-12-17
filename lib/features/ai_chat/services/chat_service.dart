@@ -114,6 +114,8 @@ class ChatService {
         'is_first_message': isFirstMessage,
       };
 
+      developer.log('Request body: ${json.encode(body)}');
+
       final response = await http.post(
         Uri.parse('$_baseUrl/chat/messages'),
         headers: {
@@ -123,10 +125,22 @@ class ChatService {
         body: utf8.encode(json.encode(body)),
       );
 
+      developer.log('Response status code: ${response.statusCode}');
+      developer.log('Response content length: ${response.contentLength}');
+
+      final rawResponse = utf8.decode(response.bodyBytes);
+      developer.log('Raw response body: $rawResponse');
+
       if (response.statusCode == 200) {
-        final responseBody = utf8.decode(response.bodyBytes);
-        final data = json.decode(responseBody);
+        final data = json.decode(rawResponse);
         _currentConversationId = data['conversation_id'];
+
+        // AIレスポンスの詳細をログ出力
+        if (data.containsKey('assistant_message')) {
+          developer.log('Assistant message length: ${data['assistant_message'].length}');
+          developer.log('Assistant message content: ${data['assistant_message']}');
+        }
+
         return data;
       } else {
         final errorBody = utf8.decode(response.bodyBytes);
