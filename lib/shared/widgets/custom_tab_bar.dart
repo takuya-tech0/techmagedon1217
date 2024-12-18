@@ -9,7 +9,8 @@ class CustomTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(4, 4, 4, 4), // タブ下に8ピクセルの隙間
+      height: 40,
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4), // タブ下に8ピクセルの隙間
       padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0), // 内側の余白を調整
       decoration: BoxDecoration(
         color: const Color(0x80D9D9D9), // 背景色D9D9D9（透過50%）
@@ -27,7 +28,7 @@ class CustomTabBar extends StatelessWidget {
         labelColor: const Color(0xFF49454F), // 選択されたタブの文字とアイコンの色
         unselectedLabelColor: const Color(0xFF49454F), // 未選択タブの文字とアイコンの色
         dividerColor: Colors.transparent, // Dividerを完全非表示
-        tabs: [
+        tabs: const [
           Tab(
             child: SizedBox(
               height: 20, // ボタンの高さを最小限に設定
@@ -35,10 +36,10 @@ class CustomTabBar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min, // コンテンツを最小限に抑える
                 children: [
                   Icon(Icons.menu_book_outlined, size: 20, color: Color(0xFF49454F)), // アイコンサイズと色
-                  const SizedBox(width: 2), // アイコンとテキストの間のスペースを縮小
-                  const Text(
+                  SizedBox(width: 6), // アイコンとテキストの間のスペースを縮小
+                  Text(
                     "テキスト",
-                    style: TextStyle(fontSize: 10, color: Color(0xFF49454F)), // テキストのフォントサイズ10
+                    style: TextStyle(fontSize: 12, color: Color(0xFF49454F)), // テキストのフォントサイズ10
                   ),
                 ],
               ),
@@ -51,10 +52,10 @@ class CustomTabBar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.smart_toy_outlined, size: 20, color: Color(0xFF49454F)), // アイコンサイズと色
-                  const SizedBox(width: 2),
-                  const Text(
+                  SizedBox(width: 6),
+                  Text(
                     "AI相談",
-                    style: TextStyle(fontSize: 10, color: Color(0xFF49454F)), // テキストのフォントサイズ10
+                    style: TextStyle(fontSize: 12, color: Color(0xFF49454F)), // テキストのフォントサイズ10
                   ),
                 ],
               ),
@@ -67,10 +68,10 @@ class CustomTabBar extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.diversity_3_outlined, size: 20, color: Color(0xFF49454F)), // アイコンサイズと色
-                  const SizedBox(width: 2),
-                  const Text(
+                  SizedBox(width: 6),
+                  Text(
                     "みんなの叡智",
-                    style: TextStyle(fontSize: 10, color: Color(0xFF49454F)), // テキストのフォントサイズ10
+                    style: TextStyle(fontSize: 12, color: Color(0xFF49454F)), // テキストのフォントサイズ10
                   ),
                 ],
               ),

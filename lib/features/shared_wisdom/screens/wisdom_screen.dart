@@ -1,3 +1,4 @@
+// lib/features/shared_wisdom/screens/wisdom_screen.dart
 import 'package:flutter/material.dart';
 import '../models/wisdom_post.dart';
 import '../widgets/wisdom_list.dart';
@@ -19,7 +20,7 @@ class WisdomScreen extends StatefulWidget {
 class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClientMixin {
   final WisdomService _service = WisdomService();
   List<WisdomPost> _posts = [];
-  List<WisdomPost> _filteredPosts = [];
+  List<WisdomPost> _filteredPosts = []; // フィルタ後の投稿一覧
   bool _isLoading = true;
   String _errorMessage = '';
   final TextEditingController _searchController = TextEditingController();
@@ -28,8 +29,11 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
   SortOption _currentSortOption = SortOption.none;
   bool _showBookmarkedOnly = false;
 
+  final GlobalKey _unitButtonKey = GlobalKey(); // 単元ボタン用のキー
+  final GlobalKey _sortButtonKey = GlobalKey(); // 単元ボタン用のキー
+
   @override
-  bool get wantKeepAlive => true;
+  bool get wantKeepAlive => true; // 状態保持
 
   @override
   void initState() {
@@ -120,9 +124,19 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
   }
 
   Future<void> _showUnitMenu(BuildContext context) async {
+    // 単元ボタンの位置とサイズを取得
+    final RenderBox renderBox = _unitButtonKey.currentContext!.findRenderObject() as RenderBox;
+    final Offset offset = renderBox.localToGlobal(Offset.zero);
+    final Size size = renderBox.size;
+
     await showMenu<String>(
       context: context,
-      position: const RelativeRect.fromLTRB(200, 200, 0, 0),
+      position: RelativeRect.fromLTRB(
+        offset.dx,                 // 左端 (X座標)
+        offset.dy + size.height,   // ボタンの下端
+        offset.dx + size.width,    // 右端
+        offset.dy + size.height,   // 下端（調整用）
+      ),
       items: const [
         PopupMenuItem(value: '力学', child: Text('力学')),
         PopupMenuItem(value: '波動', child: Text('波動')),
@@ -133,9 +147,43 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
     );
   }
 
+  // 並び替えボタンのメニュー表示処理
+  Future<void> _showSortMenu(BuildContext context) async {
+    final RenderBox renderBox = _sortButtonKey.currentContext!.findRenderObject() as RenderBox;
+    final Offset offset = renderBox.localToGlobal(Offset.zero);
+    final Size size = renderBox.size;
+
+    final selected = await showMenu<SortOption>(
+      context: context,
+      position: RelativeRect.fromLTRB(
+        offset.dx,                 // 左端 (X座標)
+        offset.dy + size.height,   // ボタンの下端
+        offset.dx + size.width,    // 右端
+        offset.dy + size.height,   // 下端（調整用）
+      ),
+      items: const [
+        PopupMenuItem(
+          value: SortOption.likeCount,
+          child: Text('いいね数の多い順'),
+        ),
+        PopupMenuItem(
+          value: SortOption.createdAt,
+          child: Text('投稿日時の新しい順'),
+        ),
+      ],
+    );
+
+    if (selected != null) {
+      setState(() {
+        _currentSortOption = selected;
+      });
+      _applyFiltersAndSorting();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    super.build(context);
+    super.build(context); // AutomaticKeepAliveClientMixin使用時は必要
 
     if (_isLoading) {
       return const Scaffold(
@@ -179,12 +227,25 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
       );
     }
 
-    final customColor = const Color(0xFF635690);
+    const customColor = Color(0xFF635690);
     final buttonStyle = OutlinedButton.styleFrom(
-      minimumSize: const Size(80, 28),
+      minimumSize: const Size(40, 28),
       side: BorderSide(color: customColor),
       foregroundColor: customColor,
       textStyle: const TextStyle(fontSize: 12),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+    );
+    final onButtonStyle = OutlinedButton.styleFrom(
+      minimumSize: const Size(40, 28),
+      side: BorderSide(color: customColor), // アウトラインの色（塗りつぶしと一致させる）
+      backgroundColor: customColor, // 背景色（塗りつぶし）
+      foregroundColor: Colors.white, // 文字やアイコンを白に設定
+      textStyle: const TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.bold, // 太字にする
+      ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
@@ -197,7 +258,7 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 child: TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
@@ -214,64 +275,69 @@ class _WisdomScreenState extends State<WisdomScreen> with AutomaticKeepAliveClie
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 2),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    OutlinedButton(
-                      style: buttonStyle,
-                      onPressed: _resetFilters,
-                      child: const Text('すべての投稿'),
-                    ),
-                    const SizedBox(width: 8),
-                    OutlinedButton(
-                      style: buttonStyle,
-                      onPressed: () => _showUnitMenu(context),
-                      child: const Text('単元'),
-                    ),
-                    const SizedBox(width: 8),
-                    OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        minimumSize: const Size(80, 28),
-                        side: BorderSide(color: customColor),
-                        backgroundColor: _showBookmarkedOnly ? customColor : Colors.transparent,
-                        foregroundColor: _showBookmarkedOnly ? Colors.white : customColor,
-                        textStyle: const TextStyle(fontSize: 12),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                padding: const EdgeInsets.only(left: 16,bottom: 2, right: 16),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,  // 水平方向にスクロール
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      OutlinedButton(
+                        style: buttonStyle,
+                        onPressed: _resetFilters,
+                        child: const Row(
+                          children: [
+                            Icon(Icons.tune, size: 20), // アイコンを追加
+                            SizedBox(width: 4), // アイコンとテキストの間隔
+                            Text('全ての投稿'),
+                          ],
                         ),
                       ),
-                      onPressed: _toggleBookmarkFilter,
-                      child: const Text('☆'),
-                    ),
-                    const SizedBox(width: 8),
-                    OutlinedButton(
-                      style: buttonStyle,
-                      onPressed: () async {
-                        final selected = await showMenu<SortOption>(
-                          context: context,
-                          position: const RelativeRect.fromLTRB(200, 200, 0, 0),
-                          items: const [
-                            PopupMenuItem(
-                              value: SortOption.likeCount,
-                              child: Text('いいね数の多い順'),
-                            ),
-                            PopupMenuItem(
-                              value: SortOption.createdAt,
-                              child: Text('投稿日時の新しい順'),
-                            ),
+                      const SizedBox(width: 8),
+                      OutlinedButton(
+                        key: _unitButtonKey, // ここにキーを設定
+                        style: buttonStyle,
+                        onPressed: () => _showUnitMenu(context), // 単元ボタン
+                        child: const Row(
+                          children: [
+                            Icon(Icons.tune, size: 20), // アイコンを追加
+                            SizedBox(width: 4), // アイコンとテキストの間隔
+                            Text('単元'),
                           ],
-                        );
-                        if (selected != null) {
-                          setState(() {
-                            _currentSortOption = selected;
-                          });
-                          _applyFiltersAndSorting();
-                        }
-                      },
-                      child: const Text('並べ替え'),
-                    ),
-                  ],
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      OutlinedButton(
+                        style:
+                        _showBookmarkedOnly ? onButtonStyle : buttonStyle,
+                        onPressed: _toggleBookmarkFilter,
+                        child: Row(
+                            children: _showBookmarkedOnly
+                                ? [
+                              Text('お気に入り'),
+                              SizedBox(width: 4), // アイコンとテキストの間隔
+                              Icon(Icons.close, size: 20), // 別のアイコンを表示
+                            ]
+                                : [
+                              Icon(Icons.tune, size: 20), // アイコンを追加
+                              SizedBox(width: 4), // アイコンとテキストの間隔
+                              Text('お気に入り'),
+                            ]),
+                      ),
+                      const SizedBox(width: 8),
+                      OutlinedButton(
+                        key: _sortButtonKey, // キーを追加
+                        style: buttonStyle,
+                        onPressed: () => _showSortMenu(context), // ボタンの真下にメニュー表示
+                        child: const Row(
+                          children: [
+                            Icon(Icons.sort, size: 20), // アイコンを追加
+                            SizedBox(width: 4),         // アイコンとテキストの間隔
+                            Text('並び替え'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
