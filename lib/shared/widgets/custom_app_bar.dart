@@ -38,7 +38,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         ),
       ),
       title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             widget.unitName ?? "第1章 物体の位置、速度、加速度",

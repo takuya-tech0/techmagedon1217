@@ -14,6 +14,7 @@ import openai
 import dotenv
 import logging
 import asyncio
+import re
 
 # Load environment variables
 dotenv.load_dotenv()
@@ -61,6 +62,7 @@ class Settings:
 
         return config
 
+# ORMモデル設定
 @lru_cache()
 def get_settings():
     return Settings()
@@ -409,6 +411,26 @@ class MaterialsDB:
                 logger.error(f"Error adding user message: {e}")
                 raise HTTPException(status_code=500, detail="Failed to add user message")
 
+    # async def generate_assistant_response(self, conversation_id: int) -> str:
+    #     """
+    #     アシスタントメッセージを生成してDBに保存して返す
+    #     """
+    #     # ユーザーメッセージ履歴を取得
+    #     messages = await self._get_all_messages_for_conversation(conversation_id)
+    #     user_messages = [m for m in messages if m['role'] == 'user']
+
+    #     if not user_messages:
+    #         raise HTTPException(status_code=400, detail="No user messages in this conversation")
+
+    #     # チャット履歴をOpenAIに送信
+    #     assistant_message = await self._query_openai_for_assistant(user_messages)
+
+    #     # 生成されたアシスタントメッセージをDBに保存
+    #     await self._add_assistant_message(conversation_id, assistant_message)
+
+    #     return assistant_message
+
+
     async def generate_assistant_response(self, conversation_id: int) -> str:
         """
         アシスタントメッセージを生成してDBに保存して返す
@@ -423,10 +445,25 @@ class MaterialsDB:
         # チャット履歴をOpenAIに送信
         assistant_message = await self._query_openai_for_assistant(user_messages)
 
+        # 不要なLaTeX区切りをクリーンアップ（新規追加）
+        assistant_message = self._clean_latex_formatting(assistant_message)
+        
+        # コンソールで出力確認
+        print("Generated Assistant Message:", assistant_message)
+
         # 生成されたアシスタントメッセージをDBに保存
         await self._add_assistant_message(conversation_id, assistant_message)
 
         return assistant_message
+
+    # 新規追加
+    def _clean_latex_formatting(self, message: str) -> str:
+        """
+        LaTeXの不要な区切り記号（\(, \), \[ , \]）を削除
+        """
+        # 正規表現でLaTeXの不要な区切り記号を削除
+        cleaned_message = re.sub(r'\\[()\[\]]', '', message)
+        return cleaned_message
 
     async def generate_conversation_title(self, conversation_id: int) -> str:
         """
